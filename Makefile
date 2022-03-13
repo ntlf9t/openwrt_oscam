@@ -34,10 +34,10 @@ define Package/oscam
   CATEGORY := Network
   TITLE := Open Source Conditional Access Modul
   URL := http://www.streamboard.tv/oscam
-  DEPENDS := +usbutils +ccid +kmod-usb-serial +kmod-usb-serial-ch341 +kmod-usb-serial-pl2303 +kmod-usb-serial-ftdi \
+  DEPENDS := +usbutils +kmod-usb-serial +kmod-usb-serial-ch341 +kmod-usb-serial-pl2303 +kmod-usb-serial-ftdi \
    +OSCAM_USE_LIBCRYPTO:libopenssl \
    +OSCAM_USE_LIBUSB:libusb-1.0 \
-   +OSCAM_USE_PCSC:pcscd
+   +OSCAM_USE_PCSC:pcscd +ccid +libpcsclite
 endef
 
 define Package/list-smargo

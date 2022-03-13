@@ -2,7 +2,10 @@
 
 USE_PROCD=1
 
+# starts before dnsmasq starts
 START=99
+# stops before networking stops
+STOP=89
 
 PROG=/usr/bin/oscam
 CONFIGFILE=/etc/oscam
@@ -27,6 +30,8 @@ start_service() {
 		/etc/init.d/pcscd enable && /etc/init.d/pcscd start
 		[ -d /var/log/oscam ] || mkdir -p /var/log/oscam
 		start_instance
+	else
+		/etc/init.d/pcscd stop && /etc/init.d/pcscd disable		
 	fi
 }
 
@@ -36,4 +41,9 @@ service_triggers() {
 
 stop_service() {
 	/etc/init.d/pcscd stop && /etc/init.d/pcscd disable
+}
+
+restart() {
+ stop_service
+ start_service
 }

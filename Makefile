@@ -7,8 +7,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME := oscam
-PKG_REV := 71e569a
-PKG_VERSION := 2019-12-12_$(PKG_REV)
+PKG_REV := 696c99c
+PKG_VERSION := 2021-07-28_$(PKG_REV)
 PKG_RELEASE := 1
 
 PKG_SOURCE_PROTO:= git
@@ -146,10 +146,6 @@ define Package/oscam/install
 
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/oscam.init $(1)/etc/init.d/oscam
-
-	$(INSTALL_DIR) $(1)/usr/share/oscam
-	$(INSTALL_BIN) ./files/oscam-watchdog.sh $(1)/usr/share/oscam/oscam-watchdog.sh
-
 endef
 
 define Package/list-smargo/install
